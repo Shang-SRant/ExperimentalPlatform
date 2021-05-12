@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/headers.css}">
+
+    <style>
+        div>p {
+            text-indent: 2em;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div th:replace="common/headers::header1('说明')"></div>
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">系统使用说明</h2>
+            <div class="card-text">
+                <p>SQL在线实验平台是对大规模的实时数据进行分析查询的系统，通过直接拉取实时仓库的数据进行预聚合，有效地提高了查询的性能，降低存储的成本。
+                使用数据立方分析实时数据的步骤如下：</p>
+                <p>
+                    <small>前提：通过 logkit Pro 发送数据到实时仓库，请参考 Nginx 日志采集。</small>
+                </p>
+                <ul>
+                    <li>步骤1:创建数据立方实例</li>
+                    <li>步骤2:分析数据立方实例的数据</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</body>
+</html>

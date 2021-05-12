@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+
+    <style>
+        pre {
+            border: 1px dashed #e9eaec;
+            background: #f8f8f9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-indent: 2em;
+        }
+
+        p {
+            text-indent: 2em;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+
+
+    <div class="p-3 bg-white" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center pb-3 mb-3 link-dark text-decoration-none border-bottom">
+            <span class="fs-5 fw-semibold"> SQL 在线实验平台-学生端</span>
+        </a>
+        <ul class="list-unstyled ps-0">
+            <h2>个人</h2>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#home-collapse" aria-expanded="false">
+                    信息
+                </button>
+                <div class="collapse show" id="home-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">个人信息</a></li>
+                        <li><a href="#" class="link-dark rounded">密码修改</a></li>
+                        <li><a href="#" class="link-dark rounded">退出登录</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <h2>实验</h2>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#dashboard-collapse" aria-expanded="false">
+                    选择题
+                </button>
+                <div class="collapse" id="dashboard-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded"></a></li>
+                        <li><a href="#" class="link-dark rounded">Weekly</a></li>
+                        <li><a href="#" class="link-dark rounded">Monthly</a></li>
+                        <li><a href="#" class="link-dark rounded">Annually</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#orders-collapse" aria-expanded="false">
+                    操作题
+                </button>
+                <div class="collapse" id="orders-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">New</a></li>
+                        <li><a href="#" class="link-dark rounded">Processed</a></li>
+                        <li><a href="#" class="link-dark rounded">Shipped</a></li>
+                        <li><a href="#" class="link-dark rounded">Returned</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="border-top my-3"></li>
+            <h2>结果</h2>
+            <li class="mb-1">
+                <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#account-collapse" aria-expanded="false">
+                    Account
+                </button>
+                <div class="collapse" id="account-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li><a href="#" class="link-dark rounded">New...</a></li>
+                        <li><a href="#" class="link-dark rounded">Profile</a></li>
+                        <li><a href="#" class="link-dark rounded">Settings</a></li>
+                        <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="align-items-stretch bg-white" style="width: 50%">
+        <a href="/" class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+            <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-5 fw-semibold">List group</span>
+        </a>
+        <div class="list-group list-group-flush border-bottom scrollarea">
+            <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small>Wed</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Tues</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Mon</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Wed</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Tues</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Mon</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Wed</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Tues</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Mon</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight" aria-current="true">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Wed</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Tues</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action py-3 lh-tight">
+                <div class="d-flex w-100 align-items-center justify-content-between">
+                    <strong class="mb-1">List group item heading</strong>
+                    <small class="text-muted">Mon</small>
+                </div>
+                <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/sidebar.js}"></script>
+
+</body>
+</html>

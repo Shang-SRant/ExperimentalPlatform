@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/headers.css}">
+
+    <style>
+        div > p {
+            text-indent: 2em;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div th:replace="common/headers::header1('公告')"></div>
+<div class="container-fluid">
+
+    <div class="card mb-3" th:each="notice:${notices}">
+        <div class="card-body">
+            <h5 class="card-title"><strong><span th:text="${notice.getTitle()}">公告标题</span></strong></h5>
+            <p class="card-text" th:text="${notice.getContent()}">
+                公告内容
+            </p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <p class="text-muted">由用户：<small th:text="${notice.getUserId()}"></small>，发布于<small
+                        th:text="${notice.getUpdateTime()}"></small></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+            <button type="button" class="btn btn-primary">1</button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+            <button type="button" class="btn btn-secondary">2</button>
+            <button type="button" class="btn btn-secondary">3</button>
+            <button type="button" class="btn btn-secondary">4</button>
+            <button type="button" class="btn btn-secondary">5</button>
+            <button type="button" class="btn btn-secondary">6</button>
+            <button type="button" class="btn btn-secondary">7</button>
+        </div>
+    </div>
+
+</div>
+
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+
+    <link rel="icon" type="image/png" sizes="144x144" th:href="@{/img/logo.png}"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+</head>
+
+<body class="text-center">
+
+<main class="form-signin">
+    <form action="/user/login" method="post">
+        <img class="mb-4" th:src="@{/img/logo.png}" alt="" width="128" height="128">
+        <h1 class="h3 mb-3 fw-normal">登录</h1>
+
+        <div class="form-floating mb-3">
+            <input name="email" type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+            <label for="emailInput">电子邮箱</label>
+        </div>
+        <div class="form-floating">
+            <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password">
+            <label for="passwordInput">用户密码</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> 七天内自动登录 </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+    </form>
+</main>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

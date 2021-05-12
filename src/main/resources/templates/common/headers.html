@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>topbar</title>
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/headers.css}">
+
+</head>
+<body>
+
+<nav th:fragment="header1(title)">
+    <div class="container-fluid">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <span class="fs-4"> SQL 在线实验平台</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" th:classappend="${title=='首页'?'active':''}" class="nav-link">首页</a>
+                </li>
+                <li class="nav-item"><a href="/notice" th:classappend="${title=='公告'?'active':''}"
+                                        class="nav-link">公告</a></li>
+                <li class="nav-item"><a href="/introduction" th:classappend="${title=='说明'?'active':''}"
+                                        class="nav-link">说明</a></li>
+                <li class="nav-item"><a href="http://localhost:8889/sql" class="nav-link">练习</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">登录</a></li>
+            </ul>
+        </header>
+    </div>
+</nav>
+
+<nav th:fragment="header2(title)">
+    <div class="container-fluid">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+
+                <span class="fs-4"> SQL 在线实验平台</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a class="nav-link">首页</a>
+                </li>
+                <li class="nav-item"><a href="/notice" class="nav-link">公告</a></li>
+                <li class="nav-item"><a href="/introduction" class="nav-link">说明</a></li>
+                <li class="nav-item"><a href="http://localhost:50401/" class="nav-link">练习</a></li>
+                <li class="nav-item"><a href="/login" class="nav-link">登录</a></li>
+            </ul>
+        </header>
+    </div>
+</nav>
+
+
+<script th:src="@{/js/bootstrap.min.js}"></script>
+
+</body>
+</html>
