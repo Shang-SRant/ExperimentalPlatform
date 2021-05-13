@@ -1,5 +1,7 @@
 package com.stq.experimentalplatform.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +27,8 @@ public class Notice implements Serializable {
     /**
      * 公告ID
      */
-    private String noticeId;
+    @TableId(type = IdType.AUTO)
+    private Integer noticeId;
 
     /**
      * 标题

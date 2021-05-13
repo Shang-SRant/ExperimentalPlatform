@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * <p>
@@ -39,7 +40,9 @@ public class QuestionController {
 
     //系统使用说明
     @RequestMapping("/info")
-    public String GoQuestionInfo() {
+    public String GoQuestionInfo(Model model) {
+        List<Question> questions = questionService.list();
+        model.addAttribute("questions", questions);
         return "/admin/question/info";
     }
 
@@ -82,6 +85,19 @@ public class QuestionController {
             model.addAttribute("info", e.getCause());
             return "forward:/question/" + id;
         }
+    }
+
+    @RequestMapping("/edit/{id}")
+    public String editQuestion(@PathVariable Integer id, Model model) {
+        Question question = questionService.getById(id);
+        model.addAttribute("question", question);
+        return "admin/question/edit";
+    }
+
+    @RequestMapping("/edit/post")
+    public String editPostQuestion(Question question) {
+        boolean b = questionService.updateById(question);
+        return "admin/question/edit";
     }
 
 }

@@ -28,7 +28,7 @@
 <body>
 <div id="app">
     <div id="sidebar" class="active">
-        <div th:replace="common/headers::sidebar('question_info')"></div>
+        <div th:replace="common/headers::sidebar('notice_info')"></div>
     </div>
 </div>
 <div id="main">
@@ -42,7 +42,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>题目管理</h3>
+                    <h3>公告管理</h3>
                 </div>
             </div>
         </div>
@@ -57,50 +57,50 @@
                                 <table class="table table-hover mb-0">
                                     <thead>
                                     <tr>
-                                        <th>题目ID</th>
-                                        <th>题目类型</th>
+                                        <th>公告ID</th>
                                         <th>标题</th>
-                                        <th>题目详情</th>
-                                        <th>答案</th>
-                                        <th>分值</th>
+                                        <th>内容</th>
+                                        <th>发布用户ID</th>
+                                        <th>创建时间</th>
+                                        <th>修改时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="question :${questions}">
+                                    <tr th:each="notice :${notices}">
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${question.getQuestionId()}"
-                                                 th:text="${question.getQuestionId()}">题目ID
+                                            <div class="text-bold-500 wrap" th:title="${notice.getNoticeId()}"
+                                                 th:text="${notice.getNoticeId()}">公告ID
                                             </div>
                                         </td>
                                         <td>
-                                            <div th:title="${question.getType()}" th:text="${question.getType()}">题目类型
+                                            <div th:title="${notice.getTitle()}" th:text="${notice.getTitle()}">标题
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${question.getTitle()}"
-                                                 th:text="${question.getTitle()}">题目标题
+                                            <div class="text-bold-500 wrap" th:title="${notice.getContent()}"
+                                                 th:text="${notice.getContent()}">内容
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${question.getSubject()}"
-                                                 th:text="${question.getSubject()}">题目内容
+                                            <div class="text-bold-500 wrap" th:title="${notice.getUserId()}"
+                                                 th:text="${notice.getUserId()}">发布用户ID
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="wrap" th:title="${question.getRightAnswer()}"
-                                                 th:text="${question.getRightAnswer()}">题目答案
+                                            <div class="wrap" th:title="${notice.getCreateTime()}"
+                                                 th:text="${notice.getCreateTime()}">创建时间
                                             </div>
                                         </td>
                                         <td>
-                                            <div th:text="${question.getScore()}" th:title="${question.getScore()}">
-                                                题目分值
+                                            <div th:text="${notice.getUpdateTime()}" th:title="${notice.getUpdateTime()}">
+                                                修改时间
                                             </div>
                                         </td>
                                         <td>
-                                            <div><a th:href="@{'/question/'+${question.getQuestionId()}}">查看</a></div>
-                                            <div><a th:href="@{'/question/edit/'+${question.getQuestionId()}}">编辑</a></div>
-                                            <div><a th:href="@{/question/}">删除</a></div>
+                                            <div><a th:href="@{/notice}">查看</a></div>
+                                            <div><a th:href="@{/notice/}">编辑</a></div>
+                                            <div><a th:href="@{/notice/}">删除</a></div>
                                         </td>
                                     </tr>
                                     </tbody>

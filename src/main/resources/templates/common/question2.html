@@ -1,78 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    pre {
-      border: 1px dashed #e9eaec;
-      background: #f8f8f9;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      text-indent: 2em;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        pre {
+            border: 1px dashed #e9eaec;
+            background: #f8f8f9;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            text-indent: 2em;
+        }
 
-    p {
-      text-indent: 2em;
-    }
-  </style>
+        p {
+            text-indent: 2em;
+        }
+    </style>
+  <title></title>
 
 </head>
 <body>
 
 <div class="container mt-3" th:fragment="question(question)">
 
-  <div>
-    <h1 class="text-center" th:text="${problem.title}"></h1>
     <div>
-      <h2>1.题目描述:</h2>
-      <pre th:text="${problem.content}">题目内容</pre>
-      <br/>
-      <h2>2.预期结果:</h2>
-      <pre th:text="${problem.answer}">预期结果</pre>
-      <br/>
-      <h2>3.分值:</h2>
-      <pre th:text="${problem.score}">分值</pre>
-      <br/>
+        <h1 class="text-center" th:text="${problem.title}"></h1>
+        <div>
+            <h2>1.题目描述:</h2>
+            <pre th:utext="${problem.content}">题目内容</pre>
+            <br/>
+            <h2>2.预期结果:</h2>
+            <pre th:text="${problem.answer}">预期结果</pre>
+            <br/>
+            <h2>3.分值:</h2>
+            <pre th:text="${problem.score}">分值</pre>
+            <br/>
+        </div>
     </div>
-  </div>
 
 
-  <div class="border-2">
-    <h2>4.作答区域:</h2>
-    <form action="/answer" method="post">
-      <label>
-        <input type="hidden" name="id" th:value="${problem.id}">
-      </label>
-      <div class="form-floating">
+    <div class="border-2">
+        <h2>4.作答区域:</h2>
+        <form action="/answer" method="post">
+            <label>
+                <input type="hidden" name="id" th:value="${problem.id}">
+            </label>
+            <div class="form-floating">
                 <textarea class="form-control" placeholder="在该文本框内输入你认为正确的SQL语句" id="sqlStr"
                           style="height: 200px" name="sqlStr" onpaste="return false;"></textarea>
-        <label for="sqlStr">在该文本框内输入你认为正确的SQL语句</label>
-      </div>
-      <div class="text-end">
-        <input class="btn btn-lg btn-primary mt-3" type="submit" value="执行">
-      </div>
-    </form>
-  </div>
-
-  <div th:unless="${info}"></div>
-  <div th:if="${info}" th:switch="${info}">
-
-    <div th:case="success" class="alert alert-success mt-3" role="alert">
-      <h4 class="alert-heading">干得好!</h4>
-      <hr>
-      <p class="mb-0">目前看来，你的结果是正确的！试试别的题目吧！<a th:href="@{/}">回首页</a></p>
+                <label for="sqlStr">在该文本框内输入你认为正确的SQL语句</label>
+            </div>
+            <div class="text-end">
+                <input class="btn btn-lg btn-primary mt-3" type="submit" value="执行">
+            </div>
+        </form>
     </div>
 
-    <div th:case="*" class="alert alert-danger mt-3" role="alert">
-      <h4 class="alert-heading">出错了!</h4>
-      <p th:text="${info}">出错信息</p>
-      <hr>
-      <p class="mb-0">请再次检查你的SQL语句，任何小的细节都可能编译失败或结果错误，甚至是一个分号的使用错误。除此之外，要善于观察报错信息中相应的提示。</p>
-    </div>
-  </div>
+    <div th:unless="${info}"></div>
+    <div th:if="${info}" th:switch="${info}">
 
-  <div th:replace="common/common::footer"></div>
+        <div th:case="success" class="alert alert-success mt-3" role="alert">
+            <h4 class="alert-heading">干得好!</h4>
+            <hr>
+            <p class="mb-0">目前看来，你的结果是正确的！试试别的题目吧！<a th:href="@{/}">回首页</a></p>
+        </div>
+
+        <div th:case="*" class="alert alert-danger mt-3" role="alert">
+            <h4 class="alert-heading">出错了!</h4>
+            <p th:text="${info}">出错信息</p>
+            <hr>
+            <p class="mb-0">请再次检查你的SQL语句，任何小的细节都可能编译失败或结果错误，甚至是一个分号的使用错误。除此之外，要善于观察报错信息中相应的提示。</p>
+        </div>
+    </div>
+
+    <div th:replace="common/common::footer"></div>
 </div>
 
 <script>

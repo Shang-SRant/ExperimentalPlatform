@@ -126,10 +126,10 @@
                     <span>公告管理</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item ">
-                        <a href="form-editor-quill.html">查询公告</a>
+                    <li class="submenu-item "  th:classappend="${nav=='notice_info'}?'active':''">
+                        <a th:href="@{/notice/info}">查询公告</a>
                     </li>
-                    <li class="submenu-item ">
+                    <li class="submenu-item"  th:classappend="${nav=='notice_add'}?'active':''">
                         <a th:href="@{/notice/add}">添加公告</a>
                     </li>
                 </ul>

@@ -24,7 +24,7 @@
     <div class="card mb-3" th:each="notice:${notices}">
         <div class="card-body">
             <h5 class="card-title"><strong><span th:text="${notice.getTitle()}">公告标题</span></strong></h5>
-            <p class="card-text" th:text="${notice.getContent()}">
+            <p class="card-text" th:utext="${notice.getContent()}">
                 公告内容
             </p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

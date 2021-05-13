@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
 <body>
 <div id="app">
     <div id="sidebar" class="active">
-        <div th:replace="common/headers::sidebar"></div>
+        <div th:replace="common/headers::sidebar('notice_add')"></div>
     </div>
     <div id="main">
         <header class="mb-3">
@@ -40,14 +40,26 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">公告</h4>
-                            </div>
-                            <div class="card-body">
-                                <div id="editor">
-                                    <p>在此处添加公告.</p>
+                            <form action="/notice/add" method="post">
+                                <div class="card-body">
+                                    <div><h5>公告标题</h5></div>
+                                    <label>
+                                        <input class="form-control" type="text" name="title"/>
+                                    </label>
                                 </div>
-                            </div>
+                                <div class="card-body">
+                                    <div><h5>公告内容</h5></div>
+                                    <label for="editor">
+
+                                    </label>
+                                    <textarea id="editor" name="editor">
+                                    <p>在此处添加公告.</p>
+                                </textarea>
+                                </div>
+                                <div class="card-body" style="width: 150px">
+                                    <button class="btn btn-primary mt-sm-3">发布公告</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -71,6 +83,11 @@
             console.error(error);
         });
 </script>
+<style>
+    .ck-editor__editable {
+        min-height: 300px;
+    }
+</style>
 
 <script src="/assets/js/main.js"></script>
 </body>
