@@ -13,6 +13,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             text-indent: 2em;
+            padding: 20px;
         }
 
         p {
@@ -30,7 +31,7 @@
         <h1 class="text-center" th:text="${question.getTitle()}"></h1>
         <div>
             <h2>1.题目描述:</h2>
-            <pre th:text="${question.getSubject()}">题目内容</pre>
+            <pre th:utext="${question.getSubject()}">题目内容</pre>
             <br/>
             <h2>2.预期结果:</h2>
             <pre th:text="${question.getRightAnswer()}">预期结果</pre>
