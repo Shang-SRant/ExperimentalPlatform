@@ -15,15 +15,16 @@
 
 <main class="form-signin">
     <form action="/user/login" method="post">
-        <img class="mb-4" th:src="@{/img/logo.png}" alt="" width="128" height="128">
+        <img class="mb-4" th:src="@{/img/logo.png}" alt="" width="128" height="128" src="">
         <h1 class="h3 mb-3 fw-normal">登录</h1>
+        <h1 class="h5 mb-3 fw-normal text-danger"><span th:text="${session.msg}"></span></h1>
 
         <div class="form-floating mb-3">
-            <input name="email" type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+            <input name="email" type="email" class="form-control" id="emailInput" placeholder="name@example.com" value="shangsrant@gmail.com">
             <label for="emailInput">电子邮箱</label>
         </div>
         <div class="form-floating">
-            <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password">
+            <input name="password" type="password" class="form-control" id="passwordInput" placeholder="Password" value="123456">
             <label for="passwordInput">用户密码</label>
         </div>
 
@@ -35,6 +36,7 @@
         <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
     </form>
 </main>
+
 <script th:src="@{/js/bootstrap.min.js}"></script>
 
 </body>

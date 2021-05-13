@@ -31,6 +31,18 @@ public class QuestionController {
     @Autowired
     private SQLMapper sqlMapper;
 
+    //系统使用说明
+    @RequestMapping("/databases/manager")
+    public String GoIDatabasesManager() {
+        return "/admin/databases/info";
+    }
+
+    //系统使用说明
+    @RequestMapping("/info")
+    public String GoQuestionInfo() {
+        return "/admin/question/info";
+    }
+
 
     @RequestMapping("/{id}")
     public String getQuestion(@PathVariable("id") String id, Model model) {

@@ -1,5 +1,6 @@
 package com.stq.experimentalplatform.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,7 @@ public class User implements Serializable {
     /**
      * 用户ID
      */
+    @TableId
     private Integer userId;
 
     /**

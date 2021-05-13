@@ -52,6 +52,100 @@
     </div>
 </nav>
 
+<div class="sidebar-wrapper active" th:fragment="sidebar(nav)">
+    <div class="sidebar-header">
+        <div class="d-flex justify-content-between">
+            <div class="logo text-center">
+                <h2>SQL 实验平台后台管理界面</h2>
+            </div>
+            <div class="toggler">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+
+        <ul class="menu">
+            <li class="sidebar-title">信息</li>
+
+            <li class="sidebar-item" th:classappend="${nav==''}?'active':''">
+                <a th:href="@{/admin}" class='sidebar-link'>
+                    <i class="bi bi-grid-fill"></i>
+                    <span>数据统计</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item"  th:classappend="${nav=='base_info'}?'active':''">
+                <a th:href="@{/user/info}" class='sidebar-link'>
+                    <i class="bi bi-hexagon-fill"></i>
+                    <span>基本信息修改</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item"  th:classappend="${nav=='modify_password'}?'active':''">
+                <a th:href="@{/user/password}" class='sidebar-link'>
+                    <i class="bi bi-egg-fill"></i>
+                    <span>密码修改</span>
+                </a>
+            </li>
+
+            <li class="sidebar-title">管理</li>
+
+            <li class="sidebar-item"  th:classappend="${nav=='databases_manager'}?'active':''">
+                <a th:href="@{/question/databases/manager}" class='sidebar-link'>
+                    <i class="bi bi-hexagon-fill"></i>
+                    <span>数据库管理</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item" th:classappend="${nav=='question_info'}?'active':''">
+                <a th:href="@{/question/info}" class='sidebar-link'>
+                    <i class="bi bi-file-earmark-medical-fill"></i>
+                    <span>题目管理</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item  has-sub">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-pen-fill"></i>
+                    <span>用户管理</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="form-editor-quill.html">管理员用户</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a href="form-editor-ckeditor.html">普通用户</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item has-sub ">
+                <a href="table.html" class='sidebar-link'>
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>公告管理</span>
+                </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a href="form-editor-quill.html">查询公告</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a th:href="@{/notice/add}">添加公告</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sidebar-item  ">
+                <a href="table-datatable.html" class='sidebar-link'>
+                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                    <span>服务器管理</span>
+                </a>
+            </li>
+        </ul>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
+
 
 <script th:src="@{/js/bootstrap.min.js}"></script>
 

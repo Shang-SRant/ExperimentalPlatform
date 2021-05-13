@@ -1,9 +1,8 @@
 package com.stq.experimentalplatform.controller;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -13,9 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @author 尚天琪
  * @since 2021-05-01
  */
-@RestController
+@Controller
 @RequestMapping("/notice")
 public class NoticeController {
+
+    //系统使用说明
+    @RequestMapping("/add")
+    public String GoNoticeAdd() {
+        return "admin/notice/notice_add";
+    }
 
 }
 
