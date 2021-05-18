@@ -94,7 +94,10 @@
                                         </td>
                                         <td>
                                             <div class="wrap" th:title="${user.getRole()}"
-                                                 th:text="${user.getRole()}">权限
+                                                 th:if="${user.getRole()}==1">超级管理员
+                                            </div>
+                                            <div class="wrap" th:title="${user.getRole()}"
+                                                 th:if="${user.getRole()}==2">普通用户
                                             </div>
                                         </td>
                                         <td>
