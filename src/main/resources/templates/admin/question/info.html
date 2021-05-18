@@ -100,7 +100,7 @@
                                         <td>
                                             <div><a th:href="@{'/question/'+${question.getQuestionId()}}">查看</a></div>
                                             <div><a th:href="@{'/question/edit/'+${question.getQuestionId()}}">编辑</a></div>
-                                            <div><a th:href="@{/question/}">删除</a></div>
+                                            <div><a th:href="@{'/question/delete/'+${question.getQuestionId()}}">删除</a></div>
                                         </td>
                                     </tr>
                                     </tbody>

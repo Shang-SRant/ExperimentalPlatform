@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -54,23 +54,11 @@
                                         <th>修改时间</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody th:each="table:${tables}">
                                     <tr>
-                                        <td class="text-bold-500">user</td>
+                                        <td class="text-bold-500" th:text="${table}">user</td>
                                         <td>15kb</td>
                                         <td class="text-bold-500">2021/05/13 16:04:13</td>
-                                        <td class="text-bold-500">2021/05/13 16:04:13</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-bold-500">student</td>
-                                        <td>26kb</td>
-                                        <td class="text-bold-500">2021/05/13 16:04:13</td>
-                                        <td class="text-bold-500">2021/05/14 16:04:13</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-bold-500">course</td>
-                                        <td>8kb</td>
-                                        <td class="text-bold-500">2021/05/14 16:04:13</td>
                                         <td class="text-bold-500">2021/05/13 16:04:13</td>
                                     </tr>
                                     </tbody>

@@ -28,7 +28,7 @@
 <body>
 <div id="app">
     <div id="sidebar" class="active">
-        <div th:replace="common/headers::sidebar('notice_info')"></div>
+        <div th:replace="common/headers::sidebar('user_manager')"></div>
     </div>
 </div>
 <div id="main">
@@ -42,7 +42,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>公告管理</h3>
+                    <h3>用户管理</h3>
                 </div>
             </div>
         </div>
@@ -57,50 +57,50 @@
                                 <table class="table table-hover mb-0">
                                     <thead>
                                     <tr>
-                                        <th>公告ID</th>
-                                        <th>标题</th>
-                                        <th>内容</th>
-                                        <th>发布用户ID</th>
-                                        <th>创建时间</th>
-                                        <th>修改时间</th>
+                                        <th>用户ID</th>
+                                        <th>用户昵称</th>
+                                        <th>真实姓名</th>
+                                        <th>密码</th>
+                                        <th>邮箱</th>
+                                        <th>角色</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr th:each="notice :${notices}">
+                                    <tr th:each="user :${users}">
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${notice.getNoticeId()}"
-                                                 th:text="${notice.getNoticeId()}">公告ID
+                                            <div class="text-bold-500 wrap" th:title="${user.getUserId()}"
+                                                 th:text="${user.getUserId()}">用户ID
                                             </div>
                                         </td>
                                         <td>
-                                            <div th:title="${notice.getTitle()}" th:text="${notice.getTitle()}">标题
+                                            <div th:title="${user.getUsername()}" th:text="${user.getUsername()}">用户昵称
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${notice.getContent()}"
-                                                 th:text="${notice.getContent()}">内容
+                                            <div class="text-bold-500 wrap" th:title="${user.getRealName()}"
+                                                 th:text="${user.getRealName()}">真实姓名
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="text-bold-500 wrap" th:title="${notice.getUserId()}"
-                                                 th:text="${notice.getUserId()}">发布用户ID
+                                            <div class="text-bold-500 wrap" th:title="${user.getPassword()}"
+                                                 th:text="${user.getPassword()}">密码
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="wrap" th:title="${notice.getCreateTime()}"
-                                                 th:text="${notice.getCreateTime()}">创建时间
+                                            <div class="text-bold-500 wrap" th:title="${user.getEmail()}"
+                                                 th:text="${user.getEmail()}">邮箱
                                             </div>
                                         </td>
                                         <td>
-                                            <div th:text="${notice.getUpdateTime()}"
-                                                 th:title="${notice.getUpdateTime()}">
-                                                修改时间
+                                            <div class="wrap" th:title="${user.getRole()}"
+                                                 th:text="${user.getRole()}">权限
                                             </div>
                                         </td>
                                         <td>
-                                            <div><a th:href="@{/notice}">查看</a></div>
-                                            <div><a th:href="@{'/notice/delete/'+${notice.getNoticeId()}}">删除</a></div>
+                                            <div><a th:href="@{'/user/edit/'+${user.getUserId()}}">编辑</a>
+                                            </div>
+                                            <div><a th:href="@{'/user/delete/'+${user.getUserId()}}">删除</a></div>
                                         </td>
                                     </tr>
                                     </tbody>

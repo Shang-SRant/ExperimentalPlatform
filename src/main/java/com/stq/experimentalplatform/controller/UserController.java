@@ -5,11 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.stq.experimentalplatform.entity.User;
 import com.stq.experimentalplatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * <p>
@@ -41,19 +44,19 @@ public class UserController {
         User user = new User();
         user.setUserId(userId);
 
-        String msg ="";
+        String msg = "";
 
         if (!old_password.equals(userService.getById(user).getPassword())) {
             msg = "原始密码比对失败，请重试！";
-        }else if(!new_password.equals(confirm_password)){
+        } else if (!new_password.equals(confirm_password)) {
             msg = "修改的密码前后不一致！请重试！";
-        }else{
+        } else {
             user.setPassword(confirm_password);
             msg = "密码修改成功！重新登陆！";
         }
 
 
-        session.setAttribute("msg",msg);
+        session.setAttribute("msg", msg);
 
         return "redirect:/login";
     }
@@ -84,5 +87,41 @@ public class UserController {
         }
     }
 
+    @RequestMapping("/manager/info")
+    public String managerUserInfo(Model model) {
+        List<User> users = userService.list();
+        model.addAttribute("users", users);
+        return "/admin/user/info";
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String deleteUser(@PathVariable Integer id) {
+        boolean b = userService.removeById(id);
+        return "redirect:/user/manager/info";
+    }
+
+    @RequestMapping("/edit/{id}")
+    public String editUser(@PathVariable Integer id, Model model) {
+        User user = userService.getById(id);
+        model.addAttribute("user", user);
+        return "/admin/user/edit";
+    }
+
+    @RequestMapping("/edit/post")
+    public String modifyUser(User user) {
+        userService.updateById(user);
+        return "redirect:/user/manager/info";
+    }
+
+    @RequestMapping("/add")
+    public String addUser() {
+        return "/admin/user/add";
+    }
+
+    @RequestMapping("/add/post")
+    public String addUser(User user) {
+        userService.save(user);
+        return "redirect:/user/manager/info";
+    }
 }
 

@@ -98,24 +98,32 @@
                 </a>
             </li>
 
-            <li class="sidebar-item" th:classappend="${nav=='question_info'}?'active':''">
-                <a th:href="@{/question/info}" class='sidebar-link'>
+            <li class="sidebar-item has-sub" th:classappend="${nav=='question_info'}?'active':''">
+                <a href="#" class='sidebar-link'>
                     <i class="bi bi-file-earmark-medical-fill"></i>
                     <span>题目管理</span>
                 </a>
+                <ul class="submenu ">
+                    <li class="submenu-item ">
+                        <a th:href="@{/question/add}">添加题目</a>
+                    </li>
+                    <li class="submenu-item ">
+                        <a th:href="@{/question/info}">查看题目</a>
+                    </li>
+                </ul>
             </li>
 
-            <li class="sidebar-item  has-sub">
+            <li class="sidebar-item  has-sub" th:classappend="${nav=='user_manager'}?'active':''">
                 <a href="#" class='sidebar-link'>
                     <i class="bi bi-pen-fill"></i>
                     <span>用户管理</span>
                 </a>
                 <ul class="submenu ">
                     <li class="submenu-item ">
-                        <a href="form-editor-quill.html">管理员用户</a>
+                        <a th:href="@{/user/add}">添加用户</a>
                     </li>
                     <li class="submenu-item ">
-                        <a href="form-editor-ckeditor.html">普通用户</a>
+                        <a th:href="@{/user/manager/info}">查看用户</a>
                     </li>
                 </ul>
             </li>
@@ -126,21 +134,21 @@
                     <span>公告管理</span>
                 </a>
                 <ul class="submenu ">
-                    <li class="submenu-item "  th:classappend="${nav=='notice_info'}?'active':''">
-                        <a th:href="@{/notice/info}">查询公告</a>
-                    </li>
                     <li class="submenu-item"  th:classappend="${nav=='notice_add'}?'active':''">
                         <a th:href="@{/notice/add}">添加公告</a>
+                    </li>
+                    <li class="submenu-item "  th:classappend="${nav=='notice_info'}?'active':''">
+                        <a th:href="@{/notice/info}">查询公告</a>
                     </li>
                 </ul>
             </li>
 
-            <li class="sidebar-item  ">
-                <a href="table-datatable.html" class='sidebar-link'>
-                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>
-                    <span>服务器管理</span>
-                </a>
-            </li>
+<!--            <li class="sidebar-item  ">-->
+<!--                <a href="table-datatable.html" class='sidebar-link'>-->
+<!--                    <i class="bi bi-file-earmark-spreadsheet-fill"></i>-->
+<!--                    <span>服务器管理</span>-->
+<!--                </a>-->
+<!--            </li>-->
         </ul>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
     </div>

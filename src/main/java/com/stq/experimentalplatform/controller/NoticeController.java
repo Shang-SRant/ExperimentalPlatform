@@ -7,6 +7,7 @@ import com.stq.experimentalplatform.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -60,5 +61,10 @@ public class NoticeController {
         return "admin/notice/notice_add";
     }
 
+    @RequestMapping("/delete/{id}")
+    public String deleteNotice(@PathVariable Integer id){
+        boolean b = noticeService.removeById(id);
+        return "redirect:/notice/info";
+    }
 }
 
